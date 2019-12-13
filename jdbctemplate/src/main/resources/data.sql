@@ -1,0 +1,1 @@
+INSERT INTO PEOPLE (ID,NAME) VALUES (1,'zhangsan');

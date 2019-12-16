@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mybatiscrud.IFoodMapper">
+    <resultMap id="BaseResultMap" type="com.example.mybatiscrud.Food">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <parameterMap id="food" type="com.example.mybatiscrud.Food"/>
+
+    <sql id="Base_Column_List">
+        id, name
+    </sql>
+
+    <!--查询所有食物-->
+    <select id="findAll" resultType="Food" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_food
+    </select>
+    <!--添加一种食物-->
+    <insert id="insertByFood" parameterType="Food">
+        insert into
+        t_food(name)
+        values (#{name})
+    </insert>
+    <!--更新一种食物-->
+    <update id="update" parameterType="Food">
+        update
+        t_food
+        set name=#{name} where id=#{id}
+    </update>
+    <!--根据ID删除一种食物-->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from
+        t_food
+        where id=#{id}
+    </delete>
+    <!--根据id查询一种食物-->
+    <select id="findById" parameterType="java.lang.Integer" resultType="Food">
+        select
+        <include refid="Base_Column_List"/>
+        from t_food
+        where id=#{id}
+    </select>
+</mapper>

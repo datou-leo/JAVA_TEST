@@ -1,0 +1,9 @@
+package com.example.jedisdemo.repository;
+
+import com.example.jedisdemo.model.CoffeeOrder;
+import com.example.jedisdemo.model.CoffeeOrder;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CoffeeOrderRepository extends JpaRepository<CoffeeOrder,Long> {
+
+}

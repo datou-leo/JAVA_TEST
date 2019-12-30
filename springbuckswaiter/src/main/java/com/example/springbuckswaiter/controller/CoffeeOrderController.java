@@ -28,7 +28,9 @@ public class CoffeeOrderController {
             @RequestParam
             Long id
     ){
-        return coffeeOrderService.getOrderById(id);
+        CoffeeOrder order=coffeeOrderService.getOrderById(id);
+        log.info("Order:{}",order);
+        return order;
     }
 
     @PostMapping("/")
